@@ -1113,6 +1113,15 @@ class Controller extends Module
 			)
 		);
 
+		$props .= $this->parser->render($this->formPropertyRow, array(
+				'id' => 'datasize',
+				'label' => Util::i18n_r('field_datasize_label'),
+				'type' => 'text',
+				'name' => 'datasize',
+				'value' => $this->processor->currentField->datasize,
+			)
+		);
+
 		return $props;
 	}
 
@@ -1579,6 +1588,13 @@ class Controller extends Module
 			$this->processor->currentField->formid = null;
 			if($this->input->post->formid) {
 				$this->processor->currentField->formid = $this->sanitizer->text($this->input->post->formid);
+			}
+		}
+
+		if(array_key_exists('datasize', $properties)) {
+			$this->processor->currentField->datasize = null;
+			if($this->input->post->datasize) {
+				$this->processor->currentField->datasize = $this->sanitizer->text($this->input->post->datasize);
 			}
 		}
 

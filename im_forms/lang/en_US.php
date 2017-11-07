@@ -72,6 +72,7 @@ $i18n = array(
 	'field_secret_key_label' => 'Secret key',
 	'field_resource_label' => 'JS resource',
 	'field_delaytext_label' => 'Delay text',
+	'field_datasize_label' => 'data-size',
 
 	// Frontend
 	'form_name_notfound_error' => 'No form matching the [[form_name]] name was found!',

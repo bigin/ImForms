@@ -272,12 +272,14 @@ class ImFormsReCaptcha
 	public $site_key = null;
 	public $secret_key = null;
 	public $class = 'g-recaptcha';
+	public $datasize = null;
 	public $parentid = null;
 
 	public function set($key, $value) { $this->{$key} = $value; }
 
 	public function render() {
-		return '<div '.(($this->class) ? ' class="'.$this->class.'" ' : '').'data-sitekey="'.$this->site_key.'"></div>';
+		return '<div '.(($this->class) ? ' class="'.$this->class.'" ' : '').'data-sitekey="'.$this->site_key.'" '.
+			(($this->datasize) ? 'data-size='.$this->datasize : '').'></div>';
 	}
 }
 
