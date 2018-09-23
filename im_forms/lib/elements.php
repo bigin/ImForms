@@ -152,6 +152,7 @@ class ImFormsLabel
 	public $for = null;
 	public $style = null;
 	public $content = null;
+	public $textappend = null;
 
 	public $elements = array();
 
@@ -179,11 +180,15 @@ class ImFormsLabel
 
 	protected function generateContent()
 	{
+		$buffer = null;
 		if(!empty($this->elements)) {
 			foreach($this->elements as $element) {
-				if(is_object($element)) $this->content .= "\r\n".$element->render();
-				else $this->content .= $element;
+				if(is_object($element)) {
+					$buffer .= (!$this->textappend) ? "\r\n".$element->render() : rtrim($element->render(), "\r\n");
+				}
+				else $buffer .= $element;
 			}
+			$this->content = ($this->textappend) ? "$buffer $this->content" : "$this->content $buffer";
 		}
 	}
 }

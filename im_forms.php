@@ -5,7 +5,7 @@ include_once(__DIR__.'/'.$im_forms_file.'/inc/_inc.php');
 register_plugin(
 	basename($im_forms_file, '.php'),
 	\ImForms\Util::i18n_r('plugin_name'),
-	'0.1',
+	'0.2',
 	'Juri Ehret',
 	'http://ehret-studio.com',
 	\ImForms\Util::i18n_r('plugin_description'),

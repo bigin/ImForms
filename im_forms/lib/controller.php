@@ -949,6 +949,16 @@ class Controller extends Module
 			)
 		);
 
+		$props .= $this->parser->render($this->formPropertyCheckboxRow, array(
+				'id' => 'textappend',
+				'label' => Util::i18n_r('field_append_label'),
+				'type' => 'checkbox',
+				'name' => 'textappend',
+				'value' => 1,
+				'checked' => !empty($this->processor->currentField->textappend) ? ' checked="checked"' : ''
+			)
+		);
+
 		$props .= $this->parser->render($this->formPropertyRow, array(
 				'id' => 'for',
 				'label' => Util::i18n_r('field_for_label'),
@@ -1191,7 +1201,6 @@ class Controller extends Module
 		}
 	}
 
-
 	/**
 	 * Performs validity checks just before form data is saved
 	 *
@@ -1328,7 +1337,6 @@ class Controller extends Module
 		return $confirm_flag;
 	}
 
-
 	/**
 	 * Save the entire form object as an item
 	 */
@@ -1348,7 +1356,6 @@ class Controller extends Module
 		// Todo: Errormessage
 		return false;
 	}
-
 
 	/**
 	 * Remove ImForm item
@@ -1567,6 +1574,13 @@ class Controller extends Module
 			$this->processor->currentField->content = null;
 			if($this->input->post->content) {
 				$this->processor->currentField->content = $this->input->post->content;
+			}
+		}
+
+		if($fieldType == 'Label' && array_key_exists('textappend', $properties)) {
+			$this->processor->currentField->textappend = null;
+			if($this->input->post->textappend) {
+				$this->processor->currentField->textappend = 1;
 			}
 		}
 

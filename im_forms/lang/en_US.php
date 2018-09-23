@@ -65,6 +65,7 @@ $i18n = array(
 	'form_multiple_label' => 'Multiple',
 	'field_type_label' => 'Type',
 	'field_content_label' => 'Content',
+	'field_append_label' => 'Text append',
 	'field_tag_label' => 'Tag',
 	'field_rows_label' => 'Rows',
 	'field_cols_label' => 'Cols',
