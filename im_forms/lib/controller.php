@@ -368,7 +368,7 @@ class Controller extends Module
 		foreach($this->processor->config->formProcessors as $class => $name) {
 			$options .= $this->parser->render($this->formPropertyOption, array(
 					'value' => $this->sanitizer->text($class),
-					'selected' => '',
+					'selected' => ($currentForm->formtype == $class) ? ' selected' : '',
 					'label' => $this->sanitizer->text($name)
 				)
 			);
