@@ -163,7 +163,7 @@ class Installer
 				<p id="delay-info" class="blink">Starting ImForms installation ...</p>
 			</div>
 		</div>
-		<h2><?php echo \ImForms\Util::i18n_r('plugin_name') ?></h2>
+		<h2><?php echo 'ImForms'; ?></h2>
 		<div class="msgs-wrapper">
 			<ul id="msgs">
 
