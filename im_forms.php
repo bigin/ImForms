@@ -3,12 +3,12 @@ $im_forms_file = basename(__FILE__, '.php');
 include_once(__DIR__.'/'.$im_forms_file.'/inc/_inc.php');
 
 register_plugin(
-	basename($im_forms_file, '.php'),
-	\ImForms\Util::i18n_r('plugin_name'),
-	'0.2',
+	basename(IMF_PLUGIN_ID, '.php'),
+	'ImForms',
+	'0.3',
 	'Juri Ehret',
 	'http://ehret-studio.com',
-	\ImForms\Util::i18n_r('plugin_description'),
+	'ImForms - A Plugin To Create Any Kind Of Forms',
 	'pages',
 	'im_forms_admin_init'
 );
@@ -18,8 +18,8 @@ register_plugin(
 if(defined('IS_ADMIN_PANEL'))
 {
 	register_style('imfstyle',
-		$SITEURL.'plugins/'.$im_forms_file.'/css/admin/style.css',GSVERSION, 'screen');
-	register_script('sortable', $SITEURL.'plugins/'.$im_forms_file.
+		$SITEURL.'plugins/'.IMF_PLUGIN_ID.'/css/admin/style.css',GSVERSION, 'screen');
+	register_script('sortable', $SITEURL.'plugins/'.IMF_PLUGIN_ID.
 		'/scripts/nestedSortable/jquery.mjs.nestedSortable.js', GSVERSION);
 
 	queue_style('imfstyle',GSBACK);
@@ -28,8 +28,7 @@ if(defined('IS_ADMIN_PANEL'))
 
 add_action('admin-pre-header', '__aj_imf_init');
 
-add_action('pages-sidebar', 'createSideMenu',
-	array($im_forms_file, \ImForms\Util::i18n_r('admin_sidebar_label')));
+add_action('pages-sidebar', 'createSideMenu', array(IMF_PLUGIN_ID, 'ImForms'));
 
 add_action( 'index-pretemplate', '__im_forms_init');
 

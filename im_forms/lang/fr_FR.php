@@ -74,17 +74,17 @@ $i18n = array(
 	'field_datasize_label' => 'data-size',
 
 	// Frontend
-	'form_name_notfound_error' => 'No form matching the [[form_name]] name was found!',
-	'module_not_exist' => 'Module [[module_name]] does not exist.',
-	'form_validation_error' => 'Form validation error.',
-	'empty_required_values' => 'Please fill in all of the required fields!',
+	'form_name_notfound_error' => 'Aucun formulaire correspondant au nom [[form_name]] n\'a été trouvé!',
+	'module_not_exist' => 'Module [[module_name]] n\'existe pas',
+	'form_validation_error' => 'Erreur de validation du formulaire',
+	'empty_required_values' => 'S\'il vous plaît remplir tous les champs obligatoires!',
 	'honey_field_not_empty' => 'You have been identified as a bot because you filled in a special field, which should remain empty.',
-	'activate_recaptcha' => 'Please complete the reCAPTCHA below!',
-	'response_invalid' => 'The response parameter is invalid or malformed!',
-	'invalid_email_address' => 'The entered email address is not valid!',
-	'default_subject' => 'Message sent by form: [[form_name]]',
-	'email_success_message' => 'Your message has been sent successfully. Thank you for your interest!',
-	'maximum_attachment_reached' => 'File [[file_name]] could not be sent, the maximum number [[max_number]] of attachments has been reached!',
-	'no_file_sent' => 'No file was sent!',
-	'a_file_not_sent' => 'File [[file_name]] could not be sent!'
+	'activate_recaptcha' => 'S\'il vous plaît remplir le reCAPTCHA ci-dessous!',
+	'response_invalid' => 'Le paramètre de réponse est invalide ou mal formé!',
+	'invalid_email_address' => 'L\'adresse email entrée n\'est pas valide!',
+	'default_subject' => 'Message envoyé par formulaire: [[form_name]] ',
+	'email_success_message' => 'Votre message a été envoyé avec succès. Merci de votre intérêt!',
+	'maximum_attachment_reached' => 'Le fichier [[file_name]] n\'a pas pu être envoyé, le nombre maximal de pièces jointes [[max_number]] a été atteint!',
+	'no_file_sent' => 'Aucun fichier n\'a été envoyé!',
+	'a_file_not_sent' => 'Le fichier [[file_name]] n\'a pas pu être envoyé!'
 );

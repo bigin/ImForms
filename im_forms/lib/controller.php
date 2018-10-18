@@ -153,7 +153,7 @@ class Controller extends Module
 
 		$form = $this->processor->unserialize($formItem);
 		$moduleName = $this->sanitizer->fieldName($form->formtype);
-		if(!in_array($form->formtype, $this->processor->config->formProcessors)) return;
+		if(!array_key_exists($form->formtype, $this->processor->config->formProcessors)) return;
 		if(!file_exists($this->processor->config->pluginRoot.'/module/'.$moduleName.'/'.$moduleName.'.php')) {
 			echo $this->parser->render(Util::i18n_r('module_not_exist'), array('module_name' =>
 				'<strong>'.$moduleName.'</strong>'));
@@ -363,7 +363,6 @@ class Controller extends Module
 		);
 
 		// Select form type
-
 		$options = '';
 		foreach($this->processor->config->formProcessors as $class => $name) {
 			$options .= $this->parser->render($this->formPropertyOption, array(
@@ -1185,7 +1184,7 @@ class Controller extends Module
 	{
 		if(\MsgReporter::msgs())
 		{
-			\MsgReporter::removeClauseByValue('<li class="notify">{im_forms/item_deleted}</li>');
+			\MsgReporter::removeClauseByValue('<li class="im-notify">{im_forms/item_deleted}<a class="close" href="javascript:void(0)"><i class="fa fa-times"></i></a></li>');
 			return $this->parser->render($arg[0], array(
 				'messages' => $this->parser->render($this->msgsWrapper, array(
 							'msgs_list' => \MsgReporter::buildMsg()

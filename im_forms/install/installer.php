@@ -10,8 +10,6 @@ class Installer
 	 */
 	public static function checkInstallation()
 	{
-		global $im_forms_file;
-
 		$jsonOutput = '';
 
 		if(!isset($_GET['imf_aj'])) {
@@ -157,7 +155,6 @@ class Installer
 
 	protected static function getInstallerTplBlock()
 	{
-		global $im_forms_file;
 		ob_start(); ?>
 		<div id="delay">
 			<div id="clamp">
@@ -243,7 +240,7 @@ class Installer
 						case 11:
 							$("#msgs .first").text('Installation process is finished');
 							$(".main #msgs").append('<li class="notify"><strong>The ImForms plugin installation is successfully completed.</strong></li>');
-							$('<form method="post" action="load.php?id=<?php echo $im_forms_file;
+							$('<form method="post" action="load.php?id=<?php echo IMF_PLUGIN_ID;
 								?>"><div class="interact-compresser"><input class="submit" type="submit" name="submit" value="Go to the ImForms"></div></form>').insertAfter(".main #msgs");
 							break;
 						case 0:
@@ -323,7 +320,6 @@ class Installer
 
 	private static function createImFormsCategory()
 	{
-		global $im_forms_file;
 		self::imFormsCategoryExists();
 		$imanager = imanager();
 		self::$imFormsCategory = $imanager->getCategoryMapper()->getCategory('name=imforms');
@@ -374,7 +370,6 @@ class Installer
 
 	private static function createCacheCategory()
 	{
-		global $im_forms_file;
 		$imanager = imanager();
 
 		self::$imCacheCategory = $imanager->getCategoryMapper()->getCategory('name=imforms_cache');
@@ -470,8 +465,6 @@ class Installer
 
 	private static function createDemoForm()
 	{
-		global $im_forms_file;
-
 		$imanager = imanager();
 		$mapper = $imanager->getItemMapper();
 
@@ -567,6 +560,13 @@ class Installer
 
 // The maximum number of file attachments
 \$config->maxFileUploads = 5;
+
+// i18n language converter, can be completed as needed 
+\$config->langs = array(
+	'de' => 'de_DE',
+	'en' => 'en_US',
+	'fr' => 'fr_FR'
+);
 
 /**
  * Set the language for error messages in the log file (Mailer only)
